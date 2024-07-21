@@ -1,13 +1,9 @@
 package com.example.trademate.ui.composables
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -23,15 +19,26 @@ fun HomeScreen (modifier: Modifier = Modifier) {
             contentScale = ContentScale.Fit,
             alpha = 0.9F
         )
-    Box(
-        modifier = modifier) {
+    Column(
+        modifier = modifier
+    ) {
+        Banner()
+
         UserInputRow(
             clear = { /*TODO*/ },
-            calculate = {},
-            label = "",
         )
     }
 }
+@Composable
+fun Banner (modifier: Modifier = Modifier) {
+val banner = painterResource(R.drawable.banner)
+
+    Image(painter = banner,
+        contentDescription = null,
+        )
+}
+
+
 
 @Preview
 @Composable

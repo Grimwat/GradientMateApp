@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TradeMate</string>
+    <string name="fall_mm">Fall (mm)</string>
+    <string name="gradient_1_xx">Gradient (1:XX)</string>
+    <string name="length_mm">Length (mm)</string>
+    <string name="percentage">Percentage (%)</string>
 </resources>
