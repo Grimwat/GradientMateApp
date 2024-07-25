@@ -12,12 +12,12 @@ import com.example.trademate.R
 
 @Composable
 fun HomeScreen (modifier: Modifier = Modifier) {
-    val image = painterResource(R.drawable.pexels_jacp_3421636)
+    val pipes = painterResource(R.drawable.pexels_jacp_3421636)
         Image(
-            painter = image,
+            painter = pipes,
             contentDescription = null,
             contentScale = ContentScale.Fit,
-            alpha = 0.9F
+            alpha = 0.9F,
         )
     Column(
         modifier = modifier
@@ -35,6 +35,7 @@ val banner = painterResource(R.drawable.banner)
 
     Image(painter = banner,
         contentDescription = null,
+        modifier = modifier
         )
 }
 

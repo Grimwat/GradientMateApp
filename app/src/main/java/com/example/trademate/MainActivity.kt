@@ -4,15 +4,13 @@ package com.example.trademate
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.trademate.ui.composables.HomeScreen
 import com.example.trademate.ui.theme.TradeMateTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,20 +23,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                   HomeScreen()
                 }
             }
         }
     }
-}
-@Composable
-fun HomeScreen (modifier: Modifier = Modifier) {
-    val image = painterResource(R.drawable.pexels_jacp_3421636)
-    Image(
-        painter = image,
-        contentDescription = null,
-        contentScale = ContentScale.Fit,
-        alpha = 0.9F
-    )
 }
 
 @Preview(showBackground = true)
