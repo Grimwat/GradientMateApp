@@ -15,9 +15,8 @@ import com.example.trademate.R
 
 @Composable
 fun HomeScreen (modifier: Modifier = Modifier) {
-    val pipes = painterResource(R.drawable.pexels_jacp_3421636)
         Image(
-            painter = pipes,
+            painter = painterResource(R.drawable.pexels_jacp_3421636),
             contentDescription = null,
             contentScale = ContentScale.FillHeight,
             alpha = 0.9F,
@@ -36,9 +35,9 @@ fun HomeScreen (modifier: Modifier = Modifier) {
     }
 @Composable
 fun Banner (modifier: Modifier = Modifier) {
-val banner = painterResource(R.drawable.banner)
 
-    Image(painter = banner,
+    Image(
+        painter = painterResource(R.drawable.banner),
         contentDescription = null,
         modifier = modifier
         )
