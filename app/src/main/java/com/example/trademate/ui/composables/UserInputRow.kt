@@ -38,9 +38,9 @@ fun UserInputRow(
         val length = lengthState.toDoubleOrNull() ?: return
         val percentage = percentageState.toDoubleOrNull() ?: return
 
-        val calculatedFall = if (gradient != 0.0) (length / gradient).toString() else ""
-        val calculatedGradient = if (fall != 0.0) (length / fall).toString() else ""
-        val calculatedLength = (gradient * fall).toString()
+        val calculatedFall = if (fall != 0.0) (length / gradient).toString() else ""
+        val calculatedGradient = if (gradient != 0.0) (length / fall).toString() else ""
+        val calculatedLength = if (length != 0.0) (gradient * fall).toString() else ""
         val calculatedPercentage = (percentage * 100).toString()
 
         fallState = calculatedFall
@@ -48,7 +48,9 @@ fun UserInputRow(
         lengthState = calculatedLength
         percentageState = calculatedPercentage
     }
-    Column(modifier = Modifier.background(Color.Blue)) {
+    Column(modifier = Modifier
+        .background(Color.Blue)
+    ) {
 
         Row(
             verticalAlignment = Alignment.CenterVertically,

@@ -29,21 +29,10 @@ fun HomeScreen (modifier: Modifier = Modifier) {
             Banner()
             Spacer(modifier = Modifier.padding(50.dp))
             UserInputRow(
-                clear = { /*TODO*/ },
+                clear = {  },
             )
         }
     }
-@Composable
-fun Banner (modifier: Modifier = Modifier) {
-
-    Image(
-        painter = painterResource(R.drawable.banner),
-        contentDescription = null,
-        modifier = modifier
-        )
-}
-
-
 
 @Preview
 @Composable
