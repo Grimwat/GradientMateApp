@@ -28,11 +28,11 @@ fun HomeScreen (modifier: Modifier = Modifier) {
         ) {
             Spacer(modifier = Modifier.padding(50.dp))
             Banner()
-            Spacer(modifier = Modifier.padding(50.dp))
+            Spacer(modifier = Modifier.padding(40.dp))
             UserInputRow(
                 clear = {  },
             )
-            Spacer(modifier = Modifier.padding(50.dp))
+            Spacer(modifier = Modifier.padding(80.dp))
             BannerAd(modifier = Modifier.fillMaxWidth())
         }
     }
