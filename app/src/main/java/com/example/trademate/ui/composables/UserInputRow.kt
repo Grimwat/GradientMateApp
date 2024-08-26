@@ -23,55 +23,42 @@ fun UserInputRow(
     viewModel: GradientViewModel,
     modifier: Modifier = Modifier
 ) {
-    val fallState by viewModel::fallState
-    val gradientState by viewModel::gradientState
-    val lengthState by viewModel::lengthState
-    val percentageState by viewModel::percentageState
-
     Column(modifier = Modifier.background(Color.Blue)) {
         UserInputField(
             label = "Fall:",
-            value = fallState,
+            value = viewModel.fallState,
             placeholder = R.string.fall_mm,
             onValueChange = {
-                viewModel.fallState = it
-                viewModel.calculate()
+                viewModel.updateFall(userInput = it)
             },
             onClear = { viewModel.clearAll() },
-            modifier = modifier
         )
         UserInputField(
             label = "Gradient:",
-            value = gradientState,
+            value = viewModel.gradientState,
             placeholder = R.string.gradient_1_xx,
             onValueChange = {
-                viewModel.gradientState = it
-                viewModel.calculate()
+                viewModel.updateGradient(userInput = it)
             },
             onClear = { viewModel.clearAll() },
-            modifier = modifier
         )
         UserInputField(
             label = "Length:",
-            value = lengthState,
+            value = viewModel.lengthState,
             placeholder = R.string.length_mm,
             onValueChange = {
-                viewModel.lengthState = it
-                viewModel.calculate()
+                viewModel.updateLength(userInput = it)
             },
             onClear = { viewModel.clearAll() },
-            modifier = modifier
         )
         UserInputField(
             label = "Percentage:",
-            value = percentageState,
+            value = viewModel.percentageState,
             placeholder = R.string.percentage,
             onValueChange = {
-                viewModel.percentageState = it
-                viewModel.calculate()
+                viewModel.updatePercentage(userInput = it)
             },
             onClear = { viewModel.clearAll() },
-            modifier = modifier
         )
     }
 }
