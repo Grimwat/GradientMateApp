@@ -40,18 +40,18 @@ class GradientViewModel : ViewModel() {
         val length = lengthState.toDoubleOrNull() ?: 0.0
         val gradient = gradientState.toDoubleOrNull() ?: 0.0
         val calculatedFall =  (length / gradient).toString()
-        lengthState = calculatedFall
+        fallState = calculatedFall
     }
     private fun calculateGradient(){
         val length = lengthState.toDoubleOrNull() ?: 0.0
         val fall = fallState.toDoubleOrNull() ?: 0.0
-        val calculatedGradient = (length / fall).toString()
+        val calculatedGradient = (fall / length).toString()
         gradientState = calculatedGradient
     }
     private fun calculatePercentage (){
         val gradient = gradientState.toDoubleOrNull() ?: 0.0
         val calculatePercentage = ((gradient / 100).toString())
-        gradientState = calculatePercentage
+        percentageState = calculatePercentage
     }
     fun clearAll() {
         fallState = ""
