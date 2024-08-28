@@ -30,6 +30,7 @@ fun UserInputRow(
             placeholder = R.string.fall_mm,
             onValueChange = {
                 viewModel.updateFall(userInput = it)
+                viewModel.determineCalculation()
             },
             onClear = { viewModel.clearAll() },
         )
@@ -39,6 +40,7 @@ fun UserInputRow(
             placeholder = R.string.gradient_1_xx,
             onValueChange = {
                 viewModel.updateGradient(userInput = it)
+                viewModel.determineCalculation()
             },
             onClear = { viewModel.clearAll() },
         )
@@ -48,6 +50,7 @@ fun UserInputRow(
             placeholder = R.string.length_mm,
             onValueChange = {
                 viewModel.updateLength(userInput = it)
+                viewModel.determineCalculation()
             },
             onClear = { viewModel.clearAll() },
         )
@@ -57,6 +60,7 @@ fun UserInputRow(
             placeholder = R.string.percentage,
             onValueChange = {
                 viewModel.updatePercentage(userInput = it)
+                viewModel.determineCalculation()
             },
             onClear = { viewModel.clearAll() },
         )
