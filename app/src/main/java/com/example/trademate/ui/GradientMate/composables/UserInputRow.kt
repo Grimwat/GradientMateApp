@@ -16,14 +16,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.trademate.R
-import com.example.trademate.ui.Class.GradientViewModel
+import com.example.trademate.ui.GradientMate.Class.GradientViewModel
 
 @Composable
 fun UserInputRow(
     viewModel: GradientViewModel,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = Modifier.background(Color.Blue)) {
+    Column(modifier = Modifier.padding(start = 20.dp, end = 20.dp)) {
         UserInputField(
             label = "Fall:",
             value = viewModel.fallState,
@@ -50,16 +50,6 @@ fun UserInputRow(
             placeholder = R.string.length_mm,
             onValueChange = {
                 viewModel.updateLength(userInput = it)
-                viewModel.determineCalculation()
-            },
-            onClear = { viewModel.clearAll() },
-        )
-        UserInputField(
-            label = "Percentage:",
-            value = viewModel.percentageState,
-            placeholder = R.string.percentage,
-            onValueChange = {
-                viewModel.updatePercentage(userInput = it)
                 viewModel.determineCalculation()
             },
             onClear = { viewModel.clearAll() },

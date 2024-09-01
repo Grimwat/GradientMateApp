@@ -1,4 +1,4 @@
-package com.example.trademate.ui.Class
+package com.example.trademate.ui.GradientMate.Class
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
@@ -15,18 +15,16 @@ class GradientViewModel : ViewModel() {
     fun determineCalculation(){
         when {
             fallState.isNotEmpty() && gradientState.isNotEmpty()
-                    && lengthState.isEmpty() -> calculateLength()}
-        when {
+                    && lengthState.isEmpty() -> calculateLength()
+
             gradientState.isNotEmpty() && lengthState.isNotEmpty()
                 && fallState.isEmpty() -> calculateFall()
-        }
-        when {
+
             lengthState.isNotEmpty() && fallState.isNotEmpty()
                     &&gradientState.isEmpty() -> calculateGradient()
-        }
-        when {gradientState.isNotEmpty() && percentageState.isEmpty()
-        -> calculatePercentage()
 
+            gradientState.isNotEmpty() && percentageState.isEmpty()
+            -> calculatePercentage()
         }
 
     }

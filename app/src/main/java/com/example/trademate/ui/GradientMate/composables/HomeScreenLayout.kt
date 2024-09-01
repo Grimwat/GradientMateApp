@@ -3,6 +3,7 @@ package com.example.trademate.ui.composables
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -13,28 +14,31 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.trademate.R
-import com.example.trademate.ui.Class.GradientViewModel
+import com.example.trademate.ui.GradientMate.Class.GradientViewModel
 
 @Composable
 fun HomeScreen (modifier: Modifier = Modifier) {
         Image(
-            painter = painterResource(R.drawable.pexels_jacp_3421636),
+            painter = painterResource(R.drawable.gradientmatetemplate__3_),
             contentDescription = null,
             contentScale = ContentScale.FillHeight,
             alpha = 0.9F,
-            modifier = Modifier
+            modifier = Modifier.fillMaxSize()
         )
         Column(
             modifier = modifier
         ) {
-            Spacer(modifier = Modifier.padding(50.dp))
-            Banner()
-            Spacer(modifier = Modifier.padding(40.dp))
+            Banner(modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 40.dp))
+            Spacer(modifier = Modifier.padding(30.dp))
             UserInputRow(
-                viewModel = GradientViewModel()
+                viewModel = GradientViewModel(),
+                modifier = Modifier.padding(start = 20.dp, end = 20.dp)
             )
-            Spacer(modifier = Modifier.padding(80.dp))
-            BannerAd(modifier = Modifier.fillMaxWidth())
+            Spacer(modifier = Modifier.padding(100.dp))
+            BannerAd(modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 140.dp)
+            )
         }
     }
 
