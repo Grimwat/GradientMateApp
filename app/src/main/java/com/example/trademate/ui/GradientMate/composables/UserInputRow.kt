@@ -1,4 +1,4 @@
-package com.example.trademate.ui.composables
+package com.example.trademate.ui.GradientMate.composables
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.trademate.R
 import com.example.trademate.ui.GradientMate.Class.GradientViewModel
 
@@ -21,37 +20,36 @@ fun UserInputRow(
     viewModel: GradientViewModel,
     modifier: Modifier = Modifier
 ) {
-    Column(modifier = Modifier.padding(start = 20.dp, end = 20.dp)) {
-        UserInputField(
-            label = "Fall:",
-            value = viewModel.fallState,
-            placeholder = R.string.fall_mm,
-            onValueChange = {
-                viewModel.updateFall(userInput = it)
-                viewModel.determineCalculation()
-            },
-            onClear = { viewModel.clearAll() },
-        )
-        UserInputField(
-            label = "Gradient:",
-            value = viewModel.gradientState,
-            placeholder = R.string.gradient_1_xx,
-            onValueChange = {
-                viewModel.updateGradient(userInput = it)
-                viewModel.determineCalculation()
-            },
-            onClear = { viewModel.clearAll() },
-        )
-        UserInputField(
-            label = "Length:",
-            value = viewModel.lengthState,
-            placeholder = R.string.length_mm,
-            onValueChange = {
-                viewModel.updateLength(userInput = it)
-                viewModel.determineCalculation()
-            },
-            onClear = { viewModel.clearAll() },
-        )
+    Row(modifier = modifier) {
+        Column(modifier = Modifier.padding(start = 20.dp, end = 20.dp)) {
+            UserInputField(
+                label = "Fall:",
+                value = viewModel.fallState,
+                placeholder = R.string.fall_mm,
+                onValueChange = {
+                    viewModel.updateFall(userInput = it)
+                    viewModel.determineCalculation()
+                },
+            )
+            UserInputField(
+                label = "Gradient:",
+                value = viewModel.gradientState,
+                placeholder = R.string.gradient_1_xx,
+                onValueChange = {
+                    viewModel.updateGradient(userInput = it)
+                    viewModel.determineCalculation()
+                },
+            )
+            UserInputField(
+                label = "Length:",
+                value = viewModel.lengthState,
+                placeholder = R.string.length_mm,
+                onValueChange = {
+                    viewModel.updateLength(userInput = it)
+                    viewModel.determineCalculation()
+                },
+            )
+        }
     }
 }
 
@@ -61,7 +59,6 @@ fun UserInputField(
     value: String,
     placeholder: Int,
     onValueChange: (String) -> Unit,
-    onClear: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -83,25 +80,22 @@ fun UserInputField(
             placeholder = { Text(stringResource(placeholder)) },
             modifier = Modifier.weight(1.2F)
         )
-        Button(
-            onClick = onClear,
-            modifier = Modifier
-                .weight(0.6F)
-                .padding(start = 6.dp)
-        ) {
-            Text(
-                text = "Clear",
-                style = MaterialTheme.typography.labelMedium
-            )
         }
     }
-}
-@Preview(showBackground = true)
 @Composable
-fun PreviewUserInputRow() {
-    MaterialTheme {
-        UserInputRow(
-            viewModel = GradientViewModel()
+fun ClearButton(
+    onClear: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Button(
+        onClick = onClear,
+        modifier = Modifier
+            .padding(start = 6.dp)
+    ) {
+        Text(
+            text = "Clear",
+            style = MaterialTheme.typography.labelMedium,
+            modifier = modifier
         )
     }
 }

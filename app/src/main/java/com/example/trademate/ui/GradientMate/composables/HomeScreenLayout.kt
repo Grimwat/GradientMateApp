@@ -1,4 +1,4 @@
-package com.example.trademate.ui.composables
+package com.example.trademate.ui.GradientMate.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -34,10 +34,11 @@ fun HomeScreen (modifier: Modifier = Modifier) {
                 viewModel = GradientViewModel(),
                 modifier = Modifier.padding(start = 20.dp, end = 20.dp)
             )
-            Spacer(modifier = Modifier.padding(100.dp))
+            Spacer(modifier = Modifier.padding(25.dp))
+            ResultsRow()
             BannerAd(modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 140.dp)
+                .padding(top = 3 0.dp)
             )
         }
     }

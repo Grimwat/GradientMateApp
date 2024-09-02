@@ -10,7 +10,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.trademate.ui.composables.HomeScreen
+import com.example.trademate.ui.GradientMate.composables.HomeScreen
 import com.example.trademate.ui.theme.TradeMateTheme
 
 class MainActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package com.example.trademate.ui.composables
+package com.example.trademate.ui.GradientMate.composables
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
