@@ -1,19 +1,23 @@
 package com.example.trademate.ui.GradientMate.composables
 
+import androidx.compose.foundation.background
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import com.example.trademate.R
 import com.example.trademate.ui.GradientMate.Class.GradientViewModel
+import com.example.trademate.ui.GradientMate.UiTheme.lightRed
 
 @Composable
 fun UserInputRow(
@@ -85,15 +89,18 @@ fun UserInputField(
 @Composable
 fun ClearButton(
     onClear: () -> Unit,
+    viewModel: GradientViewModel,
     modifier: Modifier = Modifier
 ) {
     Button(
         onClick = onClear,
+        colors = ButtonDefaults.buttonColors(lightRed),
         modifier = Modifier
             .padding(start = 6.dp)
     ) {
         Text(
-            text = "Clear",
+            text = "Clear All",
+            color = Color.Black,
             style = MaterialTheme.typography.labelMedium,
             modifier = modifier
         )

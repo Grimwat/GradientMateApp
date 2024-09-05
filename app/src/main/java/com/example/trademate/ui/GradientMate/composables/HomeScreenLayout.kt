@@ -35,10 +35,12 @@ fun HomeScreen (modifier: Modifier = Modifier) {
                 modifier = Modifier.padding(start = 20.dp, end = 20.dp)
             )
             Spacer(modifier = Modifier.padding(25.dp))
-            ResultsRow()
+            ResultsRow(
+                viewModel = GradientViewModel()
+            )
             BannerAd(modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 3 0.dp)
+                .padding(top = 10.dp)
             )
         }
     }
