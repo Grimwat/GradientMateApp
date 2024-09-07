@@ -50,7 +50,6 @@ fun UserInputRow(
                 placeholder = R.string.length_mm,
                 onValueChange = {
                     viewModel.updateLength(userInput = it)
-                    viewModel.determineCalculation()
                 },
             )
         }
@@ -88,12 +87,11 @@ fun UserInputField(
     }
 @Composable
 fun ClearButton(
-    onClear: () -> Unit,
-    viewModel: GradientViewModel,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Button(
-        onClick = onClear,
+        onClick = onClick,
         colors = ButtonDefaults.buttonColors(lightRed),
         modifier = Modifier
             .padding(start = 6.dp)

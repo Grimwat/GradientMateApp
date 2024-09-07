@@ -10,7 +10,7 @@ import com.example.trademate.R
 fun Banner (modifier: Modifier = Modifier) {
 
     Image(
-        painter = painterResource(R.drawable.banner),
+        painter = painterResource(R.drawable.bannerlogo),
         contentDescription = null,
         modifier = modifier
     )
