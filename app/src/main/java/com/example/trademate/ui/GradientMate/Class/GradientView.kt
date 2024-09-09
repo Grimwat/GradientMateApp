@@ -4,7 +4,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.example.trademate.ui.GradientMate.composables.ClearButton
 
 class GradientViewModel : ViewModel() {
 
@@ -75,9 +74,5 @@ class GradientViewModel : ViewModel() {
 
     fun updateLength(userInput: String) {
         lengthState = userInput
-    }
-
-    fun updatePercentage(userInput: String) {
-        percentageState = userInput
     }
 }

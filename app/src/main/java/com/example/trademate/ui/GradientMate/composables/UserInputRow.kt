@@ -1,6 +1,5 @@
 package com.example.trademate.ui.GradientMate.composables
 
-import androidx.compose.foundation.background
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.stringResource
 import androidx.compose.foundation.layout.*
@@ -21,9 +20,9 @@ import com.example.trademate.ui.GradientMate.UiTheme.lightRed
 
 @Composable
 fun UserInputRow(
-    viewModel: GradientViewModel,
     modifier: Modifier = Modifier
 ) {
+    val viewModel = GradientViewModel()
     Row(modifier = modifier) {
         Column(modifier = Modifier.padding(start = 20.dp, end = 20.dp)) {
             UserInputField(
@@ -32,7 +31,6 @@ fun UserInputRow(
                 placeholder = R.string.fall_mm,
                 onValueChange = {
                     viewModel.updateFall(userInput = it)
-                    viewModel.determineCalculation()
                 },
             )
             UserInputField(
@@ -41,7 +39,6 @@ fun UserInputRow(
                 placeholder = R.string.gradient_1_xx,
                 onValueChange = {
                     viewModel.updateGradient(userInput = it)
-                    viewModel.determineCalculation()
                 },
             )
             UserInputField(

@@ -14,7 +14,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.trademate.R
-import com.example.trademate.ui.GradientMate.Class.GradientViewModel
 
 @Composable
 fun HomeScreen (modifier: Modifier = Modifier) {
@@ -31,13 +30,10 @@ fun HomeScreen (modifier: Modifier = Modifier) {
             Banner(modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 40.dp))
             Spacer(modifier = Modifier.padding(30.dp))
             UserInputRow(
-                viewModel = GradientViewModel(),
-                modifier = Modifier.padding(start = 20.dp, end = 20.dp)
+                modifier = Modifier.padding(start = 20.dp, end = 20.dp),
             )
             Spacer(modifier = Modifier.padding(25.dp))
-            ResultsRow(
-                viewModel = GradientViewModel()
-            )
+            ResultsRow()
             BannerAd(modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 10.dp)
