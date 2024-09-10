@@ -20,9 +20,9 @@ import com.example.trademate.ui.GradientMate.UiTheme.lightRed
 
 @Composable
 fun UserInputRow(
+    viewModel: GradientViewModel,
     modifier: Modifier = Modifier
 ) {
-    val viewModel = GradientViewModel()
     Row(modifier = modifier) {
         Column(modifier = Modifier.padding(start = 20.dp, end = 20.dp)) {
             UserInputField(

@@ -17,8 +17,8 @@ import com.example.trademate.ui.GradientMate.Class.GradientViewModel
 
 @Composable
 fun ResultsRow(
+    viewModel: GradientViewModel,
     modifier: Modifier = Modifier) {
-    val viewModel = GradientViewModel()
     Row(modifier = modifier) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -36,15 +36,17 @@ fun ResultsRow(
                 modifier = Modifier.padding(top = 35.dp)
             )
         }
-        Results()
+        Results(
+            viewModel = viewModel)
     }
 }
 
 @Composable
 fun Results(
+    viewModel: GradientViewModel,
     modifier: Modifier = Modifier,
 ) {
-    val viewModel = GradientViewModel()
+
 
     Row(modifier = modifier) {
         Column(
@@ -68,10 +70,10 @@ fun Results(
             )
         }
         Column {
-            Text(text = viewModel.resultstate)
-            Text(text = viewModel.resultstate)
-            Text(text = viewModel.resultstate)
-            Text(text = viewModel.resultstate)
+            Text(text = viewModel.fallResultstate)
+            Text(text = viewModel.gradientResultState)
+            Text(text = viewModel.lenghtResultState)
+            Text(text = viewModel.percentageState)
 
 
         }

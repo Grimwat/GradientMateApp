@@ -6,8 +6,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 
 class GradientViewModel : ViewModel() {
-
-    var resultstate by mutableStateOf("")
+    var lenghtResultState by mutableStateOf("")
+    var gradientResultState by mutableStateOf ("")
+    var fallResultstate by mutableStateOf("")
     var fallState by mutableStateOf("")
     var gradientState by mutableStateOf("")
     var lengthState by mutableStateOf("")
@@ -34,21 +35,21 @@ class GradientViewModel : ViewModel() {
         val fall = fallState.toDoubleOrNull() ?: 0.0
         val gradient = gradientState.toDoubleOrNull() ?: 0.0
         val calculatedLength = (gradient * fall).toString()
-        resultstate = calculatedLength
+        lenghtResultState = calculatedLength
     }
 
     private fun calculateFall() {
         val length = lengthState.toDoubleOrNull() ?: 0.0
         val gradient = gradientState.toDoubleOrNull() ?: 0.0
         val calculatedFall = (length / gradient).toString()
-        resultstate = calculatedFall
+        fallResultstate = calculatedFall
     }
 
     private fun calculateGradient() {
         val length = lengthState.toDoubleOrNull() ?: 0.0
         val fall = fallState.toDoubleOrNull() ?: 0.0
         val calculatedGradient = (fall / length).toString()
-        resultstate = calculatedGradient
+        gradientResultState = calculatedGradient
     }
 
     private fun calculatePercentage() {
