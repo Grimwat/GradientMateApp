@@ -20,7 +20,6 @@ import com.example.trademate.ui.GradientMate.Class.GradientViewModel
 fun HomeScreen (modifier: Modifier = Modifier) {
 
     val viewModel = GradientViewModel()
-
         Image(
             painter = painterResource(R.drawable.gradientmatetemplate__3_),
             contentDescription = null,

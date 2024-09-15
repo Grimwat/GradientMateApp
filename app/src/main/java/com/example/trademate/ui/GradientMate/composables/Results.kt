@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,7 +49,7 @@ fun Results(
 ) {
 
 
-    Row(modifier = Modifier) {
+    Row(modifier = modifier) {
         Column(
             horizontalAlignment = Alignment.Start,
         ){
@@ -71,7 +70,7 @@ fun Results(
                 modifier = Modifier.padding(20.dp)
             )
         }
-        Column (){
+        Column {
             Text(
                 text = viewModel.fallResultState,
                 fontWeight = FontWeight.Bold,
