@@ -6,9 +6,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 
 class GradientViewModel : ViewModel() {
-    var lenghtResultState by mutableStateOf("")
+    var lengthResultState by mutableStateOf("")
     var gradientResultState by mutableStateOf ("")
-    var fallResultstate by mutableStateOf("")
+    var fallResultState by mutableStateOf("")
     var fallState by mutableStateOf("")
     var gradientState by mutableStateOf("")
     var lengthState by mutableStateOf("")
@@ -17,16 +17,20 @@ class GradientViewModel : ViewModel() {
     fun determineCalculation() {
         when {
             fallState.isNotEmpty() && gradientState.isNotEmpty()
-                    && lengthState.isEmpty() -> calculateLength()
+                    && lengthState.isEmpty() -> {calculateLength()
+            lengthResultState = lengthState}
 
             gradientState.isNotEmpty() && lengthState.isNotEmpty()
-                    && fallState.isEmpty() -> calculateFall()
+                    && fallState.isEmpty() -> {calculateFall()
+                fallResultState = fallState}
 
             lengthState.isNotEmpty() && fallState.isNotEmpty()
-                    && gradientState.isEmpty() -> calculateGradient()
+                    && gradientState.isEmpty() -> {calculateGradient()
+                gradientResultState = gradientState}
 
             gradientState.isNotEmpty() && percentageState.isEmpty()
-            -> calculatePercentage()
+            -> {calculatePercentage()
+            percentageState = percentageState}
         }
 
     }
@@ -35,21 +39,21 @@ class GradientViewModel : ViewModel() {
         val fall = fallState.toDoubleOrNull() ?: 0.0
         val gradient = gradientState.toDoubleOrNull() ?: 0.0
         val calculatedLength = (gradient * fall).toString()
-        lenghtResultState = calculatedLength
+        lengthState = calculatedLength
     }
 
     private fun calculateFall() {
         val length = lengthState.toDoubleOrNull() ?: 0.0
         val gradient = gradientState.toDoubleOrNull() ?: 0.0
         val calculatedFall = (length / gradient).toString()
-        fallResultstate = calculatedFall
+        fallState = calculatedFall
     }
 
     private fun calculateGradient() {
         val length = lengthState.toDoubleOrNull() ?: 0.0
         val fall = fallState.toDoubleOrNull() ?: 0.0
         val calculatedGradient = (fall / length).toString()
-        gradientResultState = calculatedGradient
+        gradientState = calculatedGradient
     }
 
     private fun calculatePercentage() {
@@ -63,17 +67,23 @@ class GradientViewModel : ViewModel() {
             gradientState = ""
             lengthState = ""
             percentageState = ""
+            fallResultState = ""
+            gradientResultState = ""
+            lengthResultState = ""
         }
 
     fun updateFall(userInput: String) {
         fallState = userInput
+        determineCalculation()
     }
 
     fun updateGradient(userInput: String) {
         gradientState = userInput
+        determineCalculation()
     }
 
     fun updateLength(userInput: String) {
         lengthState = userInput
+        determineCalculation()
     }
 }

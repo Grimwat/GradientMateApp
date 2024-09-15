@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -48,7 +49,7 @@ fun Results(
 ) {
 
 
-    Row(modifier = modifier) {
+    Row(modifier = Modifier) {
         Column(
             horizontalAlignment = Alignment.Start,
         ){
@@ -69,13 +70,15 @@ fun Results(
                 modifier = Modifier.padding(20.dp)
             )
         }
-        Column {
-            Text(text = viewModel.fallResultstate)
-            Text(text = viewModel.gradientResultState)
-            Text(text = viewModel.lenghtResultState)
-            Text(text = viewModel.percentageState)
-
-
+        Column (){
+            Text(
+                text = viewModel.fallResultState)
+            Text(
+                text = viewModel.gradientResultState)
+            Text(
+                text = viewModel.lengthResultState)
+            Text(
+                text = viewModel.percentageState)
         }
     }
 
@@ -85,5 +88,7 @@ fun Results(
 @Composable
 fun PreviewUserInputRow() {
     MaterialTheme {
+        Results(
+            viewModel = GradientViewModel() )
     }
 }
