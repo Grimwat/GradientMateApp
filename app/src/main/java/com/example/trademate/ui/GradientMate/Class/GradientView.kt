@@ -18,19 +18,19 @@ class GradientViewModel : ViewModel() {
         when {
             fallState.isNotEmpty() && gradientState.isNotEmpty()
                     && lengthState.isEmpty() -> {calculateLength()
-            lengthResultState = lengthState}
+            lengthResultState = "${lengthState}m"}
 
             gradientState.isNotEmpty() && lengthState.isNotEmpty()
                     && fallState.isEmpty() -> {calculateFall()
-                fallResultState = fallState}
+                fallResultState = "${fallState}m"}
 
             lengthState.isNotEmpty() && fallState.isNotEmpty()
                     && gradientState.isEmpty() -> {calculateGradient()
-                gradientResultState = gradientState}
+                gradientResultState = "1:${gradientState}"}
 
             gradientState.isNotEmpty() && percentageState.isEmpty()
             -> {calculatePercentage()
-            percentageState = percentageState}
+            percentageState = "${percentageState}%" }
         }
 
     }

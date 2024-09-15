@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.trademate.R
@@ -72,13 +73,21 @@ fun Results(
         }
         Column (){
             Text(
-                text = viewModel.fallResultState)
+                text = viewModel.fallResultState,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(20.dp))
             Text(
-                text = viewModel.gradientResultState)
+                text = viewModel.gradientResultState,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(20.dp))
             Text(
-                text = viewModel.lengthResultState)
+                text = viewModel.lengthResultState,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(20.dp))
             Text(
-                text = viewModel.percentageState)
+                text = viewModel.percentageState,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(20.dp))
         }
     }
 
