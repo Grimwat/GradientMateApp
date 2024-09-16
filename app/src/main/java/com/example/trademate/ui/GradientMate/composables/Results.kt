@@ -74,19 +74,23 @@ fun Results(
             Text(
                 text = viewModel.fallResultState,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(20.dp))
+                maxLines = 1,
+                modifier = Modifier.padding( end = 10.dp, top = 20.dp))
             Text(
                 text = viewModel.gradientResultState,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(20.dp))
+                maxLines = 1,
+                modifier = Modifier.padding( end = 10.dp, top = 20.dp))
             Text(
                 text = viewModel.lengthResultState,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(20.dp))
+                maxLines = 1,
+                modifier = Modifier.padding( end = 10.dp, top = 20.dp))
             Text(
                 text = viewModel.percentageState,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(20.dp))
+                maxLines = 1,
+                modifier = Modifier.padding( end = 10.dp, top = 20.dp))
         }
     }
 
