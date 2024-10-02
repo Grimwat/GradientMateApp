@@ -4,6 +4,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import java.util.Locale
 
 class GradientViewModel : ViewModel() {
     var lengthResultState by mutableStateOf("")
@@ -14,7 +15,7 @@ class GradientViewModel : ViewModel() {
     var lengthState by mutableStateOf("")
     var percentageState by mutableStateOf("")
 
-    fun determineCalculation() {
+    private fun determineCalculation() {
         when {
             fallState.isNotEmpty() && gradientState.isNotEmpty()
                     && lengthState.isEmpty() -> {calculateLength()
@@ -38,21 +39,42 @@ class GradientViewModel : ViewModel() {
     private fun calculateLength() {
         val fall = fallState.toDoubleOrNull() ?: 0.0
         val gradient = gradientState.toDoubleOrNull() ?: 0.0
-        val calculatedLength = (gradient * fall).toString()
+
+        println("Fall: $fall, Gradient: $gradient")
+
+        if (fall == 0.0 || gradient == 0.0){
+            lengthState = "undefined"
+            return
+        }
+        val calculatedLength = String.format(Locale.getDefault(),"%.2f",gradient * fall)
         lengthState = calculatedLength
     }
 
     private fun calculateFall() {
         val length = lengthState.toDoubleOrNull() ?: 0.0
         val gradient = gradientState.toDoubleOrNull() ?: 0.0
-        val calculatedFall = (length / gradient).toString()
+
+        println("Length: $length, Gradient: $gradient")
+
+        if (gradient == 0.0) {
+            fallState = "undefined"
+            return
+        }
+        val calculatedFall = String.format(Locale.getDefault(),"%.2f", length / gradient)
         fallState = calculatedFall
     }
 
     private fun calculateGradient() {
         val length = lengthState.toDoubleOrNull() ?: 0.0
         val fall = fallState.toDoubleOrNull() ?: 0.0
-        val calculatedGradient = (fall / length).toString()
+
+        println("Length: $length, Fall: $fall")
+
+        if (fall == 0.0){
+            gradientState = "undefined"
+            return
+        }
+        val calculatedGradient = String.format(Locale.getDefault(),"%.2f", length / fall)
         gradientState = calculatedGradient
     }
 
