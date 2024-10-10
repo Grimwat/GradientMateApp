@@ -16,6 +16,7 @@ class GradientViewModel : ViewModel() {
     var percentageState by mutableStateOf("")
 
     private fun determineCalculation() {
+
         when {
             fallState.isNotEmpty() && gradientState.isNotEmpty()
                     && lengthState.isEmpty() -> {calculateLength()
